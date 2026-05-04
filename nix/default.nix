@@ -1,4 +1,9 @@
 {
+  imports = [
+    ./lib
+    ./packages
+  ];
+
   config = {
     systems = [
       "x86_64-linux"
