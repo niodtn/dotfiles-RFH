@@ -12,7 +12,8 @@
 
   # Nix
   environment.shellAliases = {
-    rebuild = "sudo darwin-rebuild switch --flake ~/dotfiles#${config.hostName}";
+    resw = "sudo darwin-rebuild switch --flake ~/dotfiles#${config.hostName}";
+    rebu = "darwin-rebuild boot --flake ~/dotfiles#${config.hostName}";
   };
 
   # Homebrew

@@ -13,7 +13,9 @@
   # Nix
   environment = {
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles#${config.hostName}";
+      resw = "sudo nixos-rebuild switch --flake ~/dotfiles#${config.hostName}";
+      rebo = "sudo nixos-rebuild boot --flake ~/dotfiles#${config.hostName}";
+      rebu = "nixos-rebuild build --flake ~/dotfiles#${config.hostName}";
     };
     systemPackages = [pkgs.xdg-utils];
   };
