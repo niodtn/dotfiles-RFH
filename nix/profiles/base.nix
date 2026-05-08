@@ -1,5 +1,7 @@
 {
   self,
+  pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -23,13 +25,54 @@
   };
   nixpkgs.config.allowUnfree = true;
 
-  # Shell Aliases
-  environment.shellAliases = {
-    ll = "ls -l";
-    ".." = "cd ../";
-    "..." = "cd ../../";
+  environment = {
+    systemPackages = [
+      pkgs.github-cli
+    ];
+
+    shellAliases = {
+      ll = "ls -l";
+      ".." = "cd ../";
+      "..." = "cd ../../";
+    };
   };
 
   # Home Manager
-  home-manager.backupFileExtension = "backup";
+  home-manager = {
+    backupFileExtension = "backup";
+    users.${config.userName} = {
+      programs = {
+        git = {
+          enable = true;
+          settings.user.name = "niodtn";
+          settings.user.email = "ipete93@gmail.com";
+        };
+
+        jujutsu = {
+          enable = true;
+          settings = {
+            user.email = "ipegte93@gmail.com";
+            user.name = "niodtn";
+
+            ui.default-commnad = "log";
+            revset-aliases."immutable_heads()" = "trunk() | tags()";
+          };
+        };
+
+        direnv = {
+          enable = true;
+          silent = true;
+          nix-direnv.enable = true;
+        };
+
+        atuin = {
+          enable = true;
+          settings = {
+            style = "auto";
+            invert = true;
+          };
+        };
+      };
+    };
+  };
 }

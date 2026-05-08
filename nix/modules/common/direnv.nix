@@ -16,12 +16,6 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${config.username} = {
-      programs.direnv = {
-        enable = true;
-        silent = true;
-        nix-direnv.enable = true;
-      };
-
       # For VSCode
       programs.vscode.profiles.default = mkIf feat.vscode.enable {
         extensions = with marketplace; [

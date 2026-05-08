@@ -13,17 +13,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.github-cli
-    ];
-
     home-manager.users.${config.username} = {
-      programs.git = {
-        enable = true;
-        settings.user.name = "niodtn";
-        settings.user.email = "ipete93@gmail.com";
-      };
-
       # For VSCode
       programs.vscode.profiles.default = mkIf feat.vscode.enable {
         extensions = with pkgs.vscode-extensions; [
