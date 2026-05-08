@@ -17,6 +17,7 @@ in {
 
       # Hardware
       (self.paths.profiles "nixos/bluetooth.nix")
+      (self.paths.profiles "nixos/networking.nix")
 
       ({config, ...}: {
         # Nix

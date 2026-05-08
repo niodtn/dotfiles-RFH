@@ -15,6 +15,9 @@ in {
       (self.paths.profiles "nixos")
       (self.paths.profiles "common/zsh.nix")
 
+      # Hardware
+      (self.paths.profiles "nixos/networking.nix")
+
       ({config, ...}: {
         # Nix
         system.stateVersion = stateVersion;
