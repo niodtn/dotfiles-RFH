@@ -1,9 +1,9 @@
 {
   imports = [
-    ./asahi
     ./desktop
     ./mac
     ./utm
+    # ./asahi
     # ./wsl
   ];
 }
