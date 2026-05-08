@@ -13,4 +13,11 @@
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles#${config.hostName}";
   };
+
+  services = {
+    tailscale = {
+      enable = true;
+      extraUpFlags = ["--ssh"];
+    };
+  };
 }
