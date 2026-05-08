@@ -35,5 +35,13 @@
       enable = true;
       extraUpFlags = ["--ssh"];
     };
+
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = true;
+      };
+    };
   };
 }
