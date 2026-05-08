@@ -9,7 +9,6 @@ with lib; let
 in {
   imports = [
     inputs.mac-app-util.darwinModules.default
-    inputs.nix-homebrew.darwinModules.nix-homebrew
     ../common
     ./hammerspoon.nix
     ./safari.nix
@@ -87,20 +86,6 @@ in {
     nix = {
       enable = lib.mkDefault true;
       gc.automatic = config.nix.enable;
-    };
-
-    homebrew = {
-      enable = true;
-      onActivation.cleanup = "zap";
-      onActivation.upgrade = true;
-      brews = ["mas"];
-    };
-
-    nix-homebrew = {
-      enable = true;
-      user = config.username;
-      enableRosetta = true;
-      autoMigrate = true;
     };
   };
 }
