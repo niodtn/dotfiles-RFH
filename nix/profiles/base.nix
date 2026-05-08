@@ -3,7 +3,7 @@
   ...
 }: {
   imports = [
-    (self.paths.modules "common/identify.nix")
+    (self.paths.modules "common")
   ];
 
   # Nix
