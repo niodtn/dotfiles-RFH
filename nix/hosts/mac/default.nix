@@ -13,6 +13,12 @@ in {
 
     modules = [
       (self.paths.profiles "darwin")
+      ./hammerspoon.nix
+      # ./safari.nix
+
+      # Hardware
+      ./system.nix
+      ./macbook.nix
 
       ({config, ...}: {
         # Nix

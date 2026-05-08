@@ -5,14 +5,8 @@
   config,
   ...
 }: {
-  imports = [
-    flake.darwinModules.default
-    ./macbook.nix
-  ];
-
   features = {
     zsh.enable = true;
-    tailscale.enable = true;
 
     ## shell
     atuin.enable = true;
@@ -32,38 +26,5 @@
       nix.enable = true;
       markdown.enable = true;
     };
-
-    # darwin
-    hammerspoon.enable = true;
-    #safari.enable = true;
   };
-
-  environment.systemPackages = [
-    pkgs.rectangle
-    pkgs.betterdisplay # License key is in Bitwarden
-    perSystem.self.finetune
-  ];
-
-  homebrew = {
-    brews = [
-      "syncthing"
-    ];
-
-    casks = [
-      "obsidian"
-      "linearmouse" # Mouse
-      "prismlauncher"
-      "spotify"
-
-      # Dev
-      # "finch"
-    ];
-
-    masApps = {
-      "Folder Hub" = 6473019059;
-      "Amphetamine" = 937984704;
-    };
-  };
-
-  username = "niodtn";
 }
