@@ -24,6 +24,9 @@ in {
         system.stateVersion = stateVersion;
         inherit hostName;
 
+        # For Windows dual-boot
+        time.hardwareClockInLocalTime = true;
+
         # Home Manager
         home-manager.users.${config.userName}.home.stateVersion = stateVersion;
       })

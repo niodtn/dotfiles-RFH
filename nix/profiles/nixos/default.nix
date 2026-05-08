@@ -2,6 +2,7 @@
   inputs,
   self,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -17,8 +18,17 @@
     systemPackages = [pkgs.xdg-utils];
   };
 
+  programs.nix-ld.enable = true;
+
+  fonts.packages = [pkgs.noto-fonts-cjk-sans];
+
   services.dbus.enable = true;
   security.polkit.enable = true;
+
+  users.users.${config.userName} = {
+    isNormalUser = true;
+    extraGroups = ["wheel"];
+  };
 
   services = {
     tailscale = {
