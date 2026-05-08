@@ -13,6 +13,7 @@ in {
 
     modules = [
       (self.paths.profiles "darwin")
+      (self.paths.profiles "common/zsh.nix")
       ./hammerspoon.nix
       # ./safari.nix
 

@@ -13,6 +13,7 @@ in {
 
     modules = [
       (self.paths.profiles "nixos")
+      (self.paths.profiles "common/zsh.nix")
 
       ({config, ...}: {
         # Nix
