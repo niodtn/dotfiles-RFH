@@ -4,6 +4,6 @@
     ./desktop
     ./mac
     ./utm
-    ./wsl
+    # ./wsl
   ];
 }
