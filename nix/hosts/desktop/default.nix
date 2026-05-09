@@ -28,6 +28,7 @@ in {
       (self.paths.profiles "common/zsh.nix")
 
       # # Applications - GUI
+      # (self.paths.profiles "common/vscode")
       # (self.paths.profiles "common/ghostty.nix")
       # (self.paths.profiles "common/vesktop.nix")
 

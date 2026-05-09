@@ -1,23 +1,16 @@
 {
-  lib,
-  config,
   inputs,
   pkgs,
+  options,
+  lib,
   ...
-}:
-with lib; let
-  feat = config.features;
-  cfg = feat.direnv;
+}: let
   marketplace = inputs.vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
+  isDarwin = options ? homebrew;
 in {
-  options.features.direnv = {
-    enable = mkEnableOption "direnv feature";
-  };
-
-  config = mkIf cfg.enable {
-    home-manager.users.${config.username} = {
-      # For VSCode
-      programs.vscode.profiles.default = mkIf feat.vscode.enable {
+  config = lib.mkMerge [
+    {
+      home-manager.users.${config.userName}.programs.vscode.profiles.default = {
         extensions = with marketplace; [
           mkhl.direnv
           joshx.workspace-terminals
@@ -25,12 +18,18 @@ in {
 
         userSettings = {
           "direnv.restart.automatic" = true;
+        };
+      };
+    }
 
+    (lib.optionalAttrs isDarwin {
+      home-manager.users.${config.userName}.programs.vscode.profiles.default = {
+        userSettings = {
           "terminal.integrated.env.osx" = {
-            "DIRENV_LOG_FORMAT" = "-"; # Silent for VSC
+            "DIRENV_LOG_FORMAT" = "-";
           };
         };
       };
-    };
-  };
+    })
+  ];
 }

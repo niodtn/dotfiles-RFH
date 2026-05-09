@@ -28,6 +28,7 @@
   environment = {
     systemPackages = [
       pkgs.github-cli
+      pkgs.uv # Python Version Manager
     ];
 
     shellAliases = {
