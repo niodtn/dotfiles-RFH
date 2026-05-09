@@ -12,15 +12,19 @@ in {
     specialArgs = {inherit inputs self;};
 
     modules = [
-      (self.paths.profiles "nixos")
-      (self.paths.profiles "common/zsh.nix")
-
-      # Hardware
+      # Core
       inputs.apple-silicon-support.nixosModules.apple-silicon-support
+      (self.paths.profiles "nixos")
+
+      # System
       (self.paths.profiles "nixos/bluetooth.nix")
       (self.paths.profiles "nixos/networking.nix")
       ./hardware-configuration.nix
 
+      # Applications - CLI
+      (self.paths.profiles "common/zsh.nix")
+
+      # Host Specific
       ({config, ...}: {
         # Nix
         system.stateVersion = stateVersion;

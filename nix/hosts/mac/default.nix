@@ -12,15 +12,19 @@ in {
     specialArgs = {inherit inputs self;};
 
     modules = [
+      # Core
       (self.paths.profiles "darwin")
-      (self.paths.profiles "common/zsh.nix")
-      ./hammerspoon.nix
-      # ./safari.nix
-
-      # Hardware
       ./system.nix
       ./macbook.nix
 
+      # Applications - CLI
+      (self.paths.profiles "common/zsh.nix")
+
+      # Applications - GUI
+      ./hammerspoon.nix
+      # ./safari.nix
+
+      # Host Specific
       ({config, ...}: {
         # Nix
         system.stateVersion = 6; # $ darwin-rebuild changelog

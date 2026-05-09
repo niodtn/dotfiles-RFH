@@ -12,9 +12,11 @@ in {
     specialArgs = {inherit inputs self;};
 
     modules = [
+      # Core
       inputs.nixos-wsl.nixosModules.default
       (self.paths.profiles "nixos")
 
+      # Host Specific
       ({
         config,
         pkgs,
