@@ -23,6 +23,7 @@ in {
         ...
       }: {
         # Nix
+        platform = system;
         system.stateVersion = stateVersion;
         inherit hostName;
 

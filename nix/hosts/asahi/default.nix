@@ -32,6 +32,7 @@ in {
       # Host Specific
       ({config, ...}: {
         # Nix
+        platform = system;
         system.stateVersion = stateVersion;
         inherit hostName;
 

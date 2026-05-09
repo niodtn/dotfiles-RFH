@@ -31,6 +31,7 @@ in {
         ...
       }: {
         # Nix
+        platform = system;
         system.stateVersion = 6; # $ darwin-rebuild changelog
         inherit hostName;
 
