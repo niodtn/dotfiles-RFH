@@ -24,6 +24,7 @@ in {
       (self.paths.profiles "common/vscode")
       (self.paths.profiles "common/ghostty.nix")
       (self.paths.profiles "common/vesktop.nix")
+      (self.paths.profiles "common/zen-browser.nix")
       ./hammerspoon.nix
       # ./safari.nix
 
