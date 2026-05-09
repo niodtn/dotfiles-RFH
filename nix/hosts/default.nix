@@ -2,8 +2,8 @@
   imports = [
     ./desktop
     ./mac
-    ./utm
     # ./asahi
+    # ./utm
     # ./wsl
   ];
 }

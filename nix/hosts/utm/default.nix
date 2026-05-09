@@ -1,6 +1,7 @@
 {
   inputs,
   self,
+  pkgs,
   ...
 }: let
   system = "aarch64-linux";
@@ -19,6 +20,7 @@ in {
       (self.paths.profiles "nixos/systemd-boot.nix")
       (self.paths.profiles "nixos/tty-autologin.nix")
       (self.paths.profiles "nixos/networking.nix")
+      ./hardware.nix
 
       # Applications - CLI
       (self.paths.profiles "common/zsh.nix")
@@ -28,6 +30,24 @@ in {
         # Nix
         system.stateVersion = stateVersion;
         inherit hostName;
+
+        environment = {
+          variables = {
+            GS_GL_RENDERER = "gl";
+            WLR_NO_HARDWARE_CURSORS = "1"; # for cursor bug
+          };
+          systemPackages = [pkgs.virglrenderer];
+        };
+
+        services = {
+          spice-vdagentd.enable = true;
+          qemuGuest.enable = true;
+        };
+
+        hardware.graphics.extraPackages = [pkgs.mesa];
+        powerManagement.cpuFreqGovernor = "performance";
+
+        networking.hostName = "utm";
 
         # Home Manager
         home-manager.users.${config.userName}.home.stateVersion = stateVersion;
