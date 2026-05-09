@@ -1,21 +1,17 @@
 {
+  options,
   lib,
   config,
-  options,
   pkgs,
   ...
-}:
-with lib; let
-  cfg = config.features.ghostty;
+}: let
+  isLinux = options ? boot;
+  isDarwin = options ? homebrew;
 in {
-  options.features.ghostty = {
-    enable = mkEnableOption "ghostty feature";
-  };
-
-  config = mkIf cfg.enable (mkMerge [
-    # common
+  config = lib.mkMerge [
+    # Common
     {
-      home-manager.users.${config.username}.programs.ghostty = {
+      home-manager.users.${config.userName}.programs.ghostty = {
         enable = true;
         settings = {
           background-opacity = 0.9;
@@ -23,15 +19,17 @@ in {
         };
       };
     }
-    # linux
-    (optionalAttrs (options ? boot) {
-      home-manager.users.${config.username}.programs.ghostty = {
+
+    # Linux
+    (optionalAttrs isLinux {
+      home-manager.users.${config.userName}.programs.ghostty = {
         systemd.enable = true;
       };
     })
-    # darwin
-    (optionalAttrs (options ? homebrew) {
-      home-manager.users.${config.username}.programs.ghostty = {
+
+    # Darwin
+    (optionalAttrs isDarwin {
+      home-manager.users.${config.userName}.programs.ghostty = {
         package = pkgs.ghostty-bin;
         settings = {
           background = "000000";
@@ -44,5 +42,5 @@ in {
         };
       };
     })
-  ]);
+  ];
 }

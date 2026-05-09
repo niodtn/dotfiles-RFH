@@ -1,20 +1,17 @@
 {
+  self,
+  options,
   lib,
   config,
-  options,
-  perSystem,
   ...
-}:
-with lib; let
-  cfg = config.features.vesktop;
+}: let
+  isLinux = options ? boot;
+  isDarwin = options ? homebrew;
 in {
-  options.features.vesktop = {
-    enable = mkEnableOption "vesktop feature";
-  };
-
-  config = mkIf cfg.enable (mkMerge [
+  config = lib.mkMerge [
+    # Common
     {
-      home-manager.users.${config.username}.programs.vesktop = {
+      home-manager.users.${config.userName}.programs.vesktop = {
         enable = true;
         settings = {
           checkUpdates = false;
@@ -37,17 +34,19 @@ in {
         };
       };
     }
-    # linux
-    (optionalAttrs (options ? boot) {
-      home-manager.users.${config.username}.programs.vesktop = {
+
+    # Linux
+    (lib.optionalAttrs isLinux {
+      home-manager.users.${config.userName}.programs.vesktop = {
         vencord.useSystem = true;
       };
     })
+
     # Darwin
-    (optionalAttrs (options ? homebrew) {
-      home-manager.users.${config.username}.programs.vesktop = {
-        package = perSystem.self.vesktop-bin;
+    (lib.optionalAttrs isDarwin {
+      home-manager.users.${config.userName}.programs.vesktop = {
+        package = self.packages.${config.platform}.vesktop-bin;
       };
     })
-  ]);
+  ];
 }
