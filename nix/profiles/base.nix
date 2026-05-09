@@ -41,6 +41,8 @@
       ".." = "cd ../";
       "..." = "cd ../../";
     };
+
+    enableAllTerminfo = true;
   };
 
   # Home Manager
