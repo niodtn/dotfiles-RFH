@@ -17,8 +17,13 @@ in {
       (self.paths.profiles "nixos")
 
       # System
+      (self.paths.profiles "nixos/systemd-boot.nix")
+      (self.paths.profiles "nixos/plymouth.nix")
+      (self.paths.profiles "nixos/tty-autologin.nix")
+
       (self.paths.profiles "nixos/bluetooth.nix")
       (self.paths.profiles "nixos/networking.nix")
+      (self.paths.profiles "nixos/sound.nix")
       ./hardware-configuration.nix
 
       # Applications - CLI

@@ -16,6 +16,8 @@ in {
       (self.paths.profiles "nixos")
 
       # System
+      (self.paths.profiles "nixos/systemd-boot.nix")
+      (self.paths.profiles "nixos/tty-autologin.nix")
       (self.paths.profiles "nixos/networking.nix")
 
       # Applications - CLI
