@@ -25,10 +25,41 @@ in {
       # ./safari.nix
 
       # Host Specific
-      ({config, ...}: {
+      ({
+        config,
+        pkgs,
+        ...
+      }: {
         # Nix
         system.stateVersion = 6; # $ darwin-rebuild changelog
         inherit hostName;
+
+        environment.systemPackages = [
+          pkgs.rectangle
+          pkgs.betterdisplay # License key is in Bitwarden
+          self.packages.${system}.finetune
+        ];
+
+        homebrew = {
+          brews = [
+            "syncthing"
+          ];
+
+          casks = [
+            "obsidian"
+            "linearmouse" # Mouse
+            "prismlauncher"
+            "spotify"
+
+            # Dev
+            # "finch"
+          ];
+
+          masApps = {
+            "Folder Hub" = 6473019059;
+            "Amphetamine" = 937984704;
+          };
+        };
 
         # Home Manager
         home-manager.users.${config.userName}.home.stateVersion = stateVersion;

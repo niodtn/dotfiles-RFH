@@ -6,14 +6,7 @@
   ...
 }: {
   features = {
-    zsh.enable = true;
-
     ## shell
-    atuin.enable = true;
-    comma.enable = true;
-    direnv.enable = true;
-    git.enable = true;
-    jujutsu.enable = true;
     python.enable = true;
     starship.enable = true;
 
