@@ -3,9 +3,7 @@
     # --- 1. Core ---
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +16,6 @@
     mac-app-util.url = "github:hraban/mac-app-util";
     mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
 
     # # Asahi
     # apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
