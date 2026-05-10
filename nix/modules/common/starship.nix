@@ -15,7 +15,6 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.${config.username} = {
-      programs.starship.enable = true;
       home.file.".config/starship".source = "${flake}/starship";
 
       home.sessionVariables.STARSHIP_CONFIG = mkForce starshipConfigPath;
