@@ -1,7 +1,7 @@
 {config, ...}: {
   boot = {
     blacklistedKernelModules = ["nouveau"]; # block open source driver
-    kernelParams = ["nvidia-drm.modeset=1" "nvidia-drm.fbdev=1"];
+    kernelParams = ["nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" "initcall_blacklist=simpledrm_platform_driver_init"];
     initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
   };
 
