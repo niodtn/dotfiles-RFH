@@ -10,6 +10,7 @@
 in {
   imports = [
     ./disable-annoyance.nix
+    ./ublock-origin.nix
     ./user-chrome.nix
   ];
 
