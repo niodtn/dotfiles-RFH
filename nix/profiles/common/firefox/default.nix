@@ -1,7 +1,16 @@
-{config, ...}: {
+{config, ...}: let
+  mkLocked = value: {
+    Value = value;
+    Status = "locked";
+  };
+in {
   imports = [
     ./user-chrome.nix
   ];
+
+  _module.args = {
+    inherit mkLocked;
+  };
 
   home-manager.users.${config.userName}.programs.firefox = {
     enable = true;
@@ -11,10 +20,7 @@
       DisableFirefoxAccounts = true;
 
       Preferences = {
-        "browser.aboutConfig.showWarning" = {
-          Value = false;
-          Status = "locked";
-        };
+        "browser.aboutConfig.showWarning" = mkLocked false;
       };
     };
 

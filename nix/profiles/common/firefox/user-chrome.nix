@@ -1,10 +1,11 @@
-{config, ...}: {
+{
+  config,
+  mkLocked,
+  ...
+}: {
   home-manager.users.${config.userName}.programs.firefox = {
     policies.Preferences = {
-      "toolkit.legacyUserProfileCustomizations.stylesheets" = {
-        Value = true;
-        Status = "locked";
-      };
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = mkLocked true;
     };
 
     profiles.default.userChrome = ''
