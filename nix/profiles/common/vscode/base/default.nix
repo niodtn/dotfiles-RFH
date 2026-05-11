@@ -13,7 +13,9 @@ in {
     ./usersettings.nix
   ];
 
-  _module.args.marketplace = inputs.vscode-extensions.extensions.${config.platform}.vscode-marketplace;
+  _module.args = {
+    inherit marketplace;
+  };
 
   home-manager.users.${config.userName}.programs.vscode = {
     profiles.default.extensions = with marketplace; [esbenp.prettier-vscode];
