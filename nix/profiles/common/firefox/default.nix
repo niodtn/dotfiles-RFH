@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   mkLocked = value: {
     Value = value;
     Status = "locked";
@@ -22,6 +26,7 @@ in {
 
       Preferences = {
         "browser.aboutConfig.showWarning" = mkLocked false;
+        "browser.toolbars.bookmarks.visibility" = lib.mkDefault (mkLocked "never");
       };
     };
 
