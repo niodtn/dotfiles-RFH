@@ -16,7 +16,7 @@ in {
       (self.paths.profiles "nixos")
 
       # System
-      (self.paths.profiles "nixos/systemd-boot.nix")
+      (self.paths.profiles "nixos/boot.nix")
       (self.paths.profiles "nixos/plymouth.nix")
       (self.paths.profiles "nixos/tty-autologin.nix")
 

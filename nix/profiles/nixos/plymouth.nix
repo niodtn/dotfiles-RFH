@@ -18,9 +18,5 @@
       "udev.log_level=3"
       "systemd.show_status=auto"
     ];
-
-    consoleLogLevel = 3;
-    initrd.verbose = false;
-    initrd.systemd.enable = true;
   };
 }

@@ -17,7 +17,7 @@ in {
       (self.paths.profiles "nixos")
 
       # System
-      (self.paths.profiles "nixos/systemd-boot.nix")
+      (self.paths.profiles "nixos/boot.nix")
       (self.paths.profiles "nixos/plymouth.nix")
       (self.paths.profiles "nixos/tty-autologin.nix")
 
@@ -37,6 +37,7 @@ in {
         inherit hostName;
 
         # hardware.asahi.peripheralFirmwareDirectory = /boot/asahi;
+        boot.loaderefi.canTouchEfiVariables = false;
 
         # Home Manager
         home-manager.users.${config.userName}.home.stateVersion = stateVersion;
