@@ -5,6 +5,7 @@
   };
 in {
   imports = [
+    ./disable-annoyance.nix
     ./user-chrome.nix
   ];
 
