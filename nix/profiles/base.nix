@@ -32,7 +32,7 @@
     ];
 
     shellAliases = {
-      ll = "ls -l";
+      ll = "ls -al";
       ".." = "cd ../";
       "..." = "cd ../../";
     };
