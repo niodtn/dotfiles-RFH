@@ -1,4 +1,8 @@
 {config, ...}: {
+  imports = [
+    ./user-chrome.nix
+  ];
+
   home-manager.users.${config.userName}.programs.firefox = {
     enable = true;
 
