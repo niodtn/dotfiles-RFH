@@ -9,6 +9,13 @@
     policies = {
       DisableAppUpdate = true;
       DisableFirefoxAccounts = true;
+
+      Preferences = {
+        "browser.aboutConfig.showWarning" = {
+          Value = false;
+          Status = "locked";
+        };
+      };
     };
 
     profiles.default = {
