@@ -1,7 +1,7 @@
 {config, ...}: {
   imports = [./base];
 
-  manager.users.${config.userName}.programs.vscode = {
+  home-manager.users.${config.userName}.programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
   };

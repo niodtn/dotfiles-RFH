@@ -1,11 +1,10 @@
 {
-  inputs,
-  pkgs,
   options,
   lib,
+  config,
+  marketplace,
   ...
 }: let
-  marketplace = inputs.vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
   isDarwin = options ? homebrew;
 in {
   config = lib.mkMerge [

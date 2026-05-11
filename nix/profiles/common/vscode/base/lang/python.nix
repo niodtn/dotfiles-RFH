@@ -1,11 +1,9 @@
 {
-  inputs,
   config,
+  marketplace,
   pkgs,
   ...
-}: let
-  marketplace = inputs.vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
-in {
+}: {
   home-manager.users.${config.userName}.programs.vscode.profiles.default = {
     extensions = [
       marketplace.ms-python.python
