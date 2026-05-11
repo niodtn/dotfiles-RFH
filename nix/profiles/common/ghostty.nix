@@ -21,14 +21,14 @@ in {
     }
 
     # Linux
-    (optionalAttrs isLinux {
+    (lib.optionalAttrs isLinux {
       home-manager.users.${config.userName}.programs.ghostty = {
         systemd.enable = true;
       };
     })
 
     # Darwin
-    (optionalAttrs isDarwin {
+    (lib.optionalAttrs isDarwin {
       home-manager.users.${config.userName}.programs.ghostty = {
         package = pkgs.ghostty-bin;
         settings = {
@@ -37,7 +37,7 @@ in {
           window-padding-x = 25;
           window-padding-balance = true;
           macos-titlebar-style = "tabs";
-          # macos-icon = "blueprint";
+          macos-icon = "blueprint";
           macos-secure-input-indication = false;
         };
       };
