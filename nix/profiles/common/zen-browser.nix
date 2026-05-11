@@ -39,7 +39,7 @@ in {
           profiles.default = {
             id = 0;
 
-            extensions.packages = with inputs.firefox-addons.packages.${config.platform}; [
+            extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
               ublock-origin
               bitwarden
             ];

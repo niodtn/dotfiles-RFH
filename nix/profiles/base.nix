@@ -1,4 +1,5 @@
 {
+  inputs,
   self,
   pkgs,
   config,
@@ -23,7 +24,11 @@
       extra-trusted-public-keys = self.caches.trustedPublicKeys;
     };
   };
-  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [inputs.nur.overlays.default];
+  };
 
   environment = {
     systemPackages = [
