@@ -11,6 +11,7 @@ in {
   imports = [
     ./bitwarden.nix
     ./disable-annoyance.nix
+    ./tampermonkey.nix
     ./ublock-origin.nix
     ./user-chrome.nix
   ];
