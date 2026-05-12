@@ -24,7 +24,6 @@
 
   fonts.packages = [pkgs.noto-fonts-cjk-sans];
 
-  services.dbus.enable = true;
   security.polkit.enable = true;
 
   users.users.${config.userName} = {
@@ -45,5 +44,7 @@
         PasswordAuthentication = true;
       };
     };
+
+    dbus.enable = true;
   };
 }
