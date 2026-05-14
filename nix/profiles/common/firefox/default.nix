@@ -9,6 +9,7 @@
   };
 in {
   imports = [
+    ./bitwarden.nix
     ./disable-annoyance.nix
     ./ublock-origin.nix
     ./user-chrome.nix
