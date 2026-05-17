@@ -5,8 +5,8 @@
   ...
 }: let
   # https://github.com/ronitsingh10/FineTune/releases
-  version = "1.6.0";
-  sha256 = "sha256-vT5A3mBaCOlNpTfx//ch4KqGWZixhMGO+BoWUt0foNY=";
+  version = "1.7.0";
+  sha256 = "sha256-yqhkD+iOzS0FzzsLgJlt2ctKpC+u82P6xEl+sN/RLKc=";
 in
   stdenvNoCC.mkDerivation {
     pname = "finetune";
