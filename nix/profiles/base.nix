@@ -40,6 +40,8 @@
       ll = "ls -al";
       ".." = "cd ../";
       "..." = "cd ../../";
+
+      cloc = "nix run nixpkgs#cloc --";
     };
 
     enableAllTerminfo = true;
