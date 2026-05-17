@@ -3,10 +3,6 @@
   config,
   ...
 }: {
-  imports = [
-    inputs.mac-app-util.darwinModules.default
-  ];
-
   system.primaryUser = config.userName;
 
   system.defaults = {
