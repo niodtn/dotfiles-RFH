@@ -1,14 +1,12 @@
 {
-  inputs,
-  options,
   lib,
   config,
+  inputs,
   pkgs,
+  self,
+  options,
   ...
-}: let
-  isLinux = options ? boot;
-  isDarwin = options ? homebrew;
-in {
+}: {
   config = lib.mkMerge [
     # Common
     {
@@ -108,14 +106,14 @@ in {
     }
 
     # Linux
-    (lib.optionalAttrs isLinux {
+    (self.isLinux options {
       home-manager.users.${config.userName}.programs.zen-browser = {
         nativeMessagingHosts = [pkgs.firefoxpwa];
       };
     })
 
     # Darwin
-    (lib.optionalAttrs isDarwin {
+    (self.isDarwin options {
       home-manager.users.${config.userName}.programs.zen-browser = {
         darwinDefaultsId = "app.zen-browser.zen";
       };

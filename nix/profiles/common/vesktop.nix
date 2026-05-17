@@ -1,13 +1,10 @@
 {
-  self,
-  options,
   lib,
   config,
+  self,
+  options,
   ...
-}: let
-  isLinux = options ? boot;
-  isDarwin = options ? homebrew;
-in {
+}: {
   config = lib.mkMerge [
     # Common
     {
@@ -36,14 +33,14 @@ in {
     }
 
     # Linux
-    (lib.optionalAttrs isLinux {
+    (self.isLinux options {
       home-manager.users.${config.userName}.programs.vesktop = {
         vencord.useSystem = true;
       };
     })
 
     # Darwin
-    (lib.optionalAttrs isDarwin {
+    (self.isDarwin options {
       home-manager.users.${config.userName}.programs.vesktop = {
         package = self.packages.${config.platform}.vesktop-bin;
       };

@@ -1,12 +1,11 @@
 {
-  options,
   lib,
   config,
   pkgs,
+  self,
+  options,
   ...
-}: let
-  isDarwin = options ? homebrew;
-in {
+}: {
   config = lib.mkMerge [
     # Common
     {
@@ -25,7 +24,7 @@ in {
     }
 
     # Darwin
-    (lib.optionalAttrs isDarwin {
+    (self.isDarwin options {
       homebrew.enableZshIntegration = true;
     })
   ];

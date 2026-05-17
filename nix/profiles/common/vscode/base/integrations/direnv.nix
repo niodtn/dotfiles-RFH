@@ -1,12 +1,11 @@
 {
-  options,
   lib,
   config,
   marketplace,
+  self,
+  options,
   ...
-}: let
-  isDarwin = options ? homebrew;
-in {
+}: {
   config = lib.mkMerge [
     {
       home-manager.users.${config.userName}.programs.vscode.profiles.default = {
@@ -21,7 +20,7 @@ in {
       };
     }
 
-    (lib.optionalAttrs isDarwin {
+    (self.isDarwin options {
       home-manager.users.${config.userName}.programs.vscode.profiles.default = {
         userSettings = {
           "terminal.integrated.env.osx" = {
