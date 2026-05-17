@@ -19,13 +19,14 @@ in {
       ./hardware
       (self.paths.profiles "nixos/boot.nix")
       (self.paths.profiles "nixos/plymouth.nix")
-      (self.paths.profiles "nixos/tty-autologin.nix")
 
       (self.paths.profiles "nixos/bluetooth.nix")
       (self.paths.profiles "nixos/networking.nix")
       (self.paths.profiles "nixos/sound.nix")
 
       # Applications - CLI
+      (self.paths.profiles "nixos/tty/autologin.nix")
+      (self.paths.profiles "nixos/tty/kmscon.nix")
       (self.paths.profiles "common/zsh.nix")
 
       # # Applications - GUI

@@ -19,7 +19,6 @@ in {
       # System
       (self.paths.profiles "nixos/boot.nix")
       (self.paths.profiles "nixos/plymouth.nix")
-      (self.paths.profiles "nixos/tty-autologin.nix")
 
       (self.paths.profiles "nixos/bluetooth.nix")
       (self.paths.profiles "nixos/networking.nix")
@@ -27,6 +26,7 @@ in {
       ./hardware-configuration.nix
 
       # Applications - CLI
+      (self.paths.profiles "nixos/tty/autologin.nix")
       (self.paths.profiles "common/zsh.nix")
 
       # Host Specific

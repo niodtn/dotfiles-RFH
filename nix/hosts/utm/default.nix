@@ -18,11 +18,11 @@ in {
 
       # System
       (self.paths.profiles "nixos/boot.nix")
-      (self.paths.profiles "nixos/tty-autologin.nix")
       (self.paths.profiles "nixos/networking.nix")
       ./hardware.nix
 
       # Applications - CLI
+      (self.paths.profiles "nixos/tty/autologin.nix")
       (self.paths.profiles "common/zsh.nix")
 
       # Host Specific
