@@ -18,21 +18,23 @@ in {
       # System
       ./hardware
       (self.paths.profiles "nixos/boot.nix")
-      (self.paths.profiles "nixos/plymouth.nix")
+      # (self.paths.profiles "nixos/plymouth.nix")
 
-      (self.paths.profiles "nixos/bluetooth.nix")
       (self.paths.profiles "nixos/networking.nix")
       (self.paths.profiles "nixos/sound.nix")
 
       # Applications - CLI
-      (self.paths.profiles "nixos/tty/autologin.nix")
+      # (self.paths.profiles "nixos/tty/autologin.nix")
       (self.paths.profiles "nixos/tty/kmscon.nix")
       (self.paths.profiles "common/zsh.nix")
       (self.paths.profiles "common/zellij.nix")
 
       # # Applications - GUI
-      # (self.paths.profiles "common/vscode")
-      # (self.paths.profiles "common/ghostty.nix")
+      (self.paths.profiles "nixos/gui/gnome.nix")
+
+      (self.paths.profiles "common/vscode")
+      (self.paths.profiles "common/ghostty.nix")
+      (self.paths.profiles "common/firefox")
       # (self.paths.profiles "common/vesktop.nix")
 
       # Host Specific

@@ -11,10 +11,7 @@
 
   environment = {
     systemPackages = [pkgs.xdg-utils];
-    variables = {
-      XDG_SESSION_TYPE = "wayland";
-      NIXOS_OZONE_WL = "1";
-    };
+    variables = {NIXOS_OZONE_WL = "1";};
   };
 
   xdg.portal = {
