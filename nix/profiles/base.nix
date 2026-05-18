@@ -16,7 +16,12 @@
       options = "--delete-older-than 30d";
     };
     settings = {
-      experimental-features = "nix-command flakes";
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "ca-derivations"
+        "fetch-closure"
+      ];
       # gc
       auto-optimise-store = true;
       # caches
