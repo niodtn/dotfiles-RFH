@@ -11,23 +11,6 @@
   ];
 
   # Nix
-  services = {
-    tailscale = {
-      enable = true;
-      extraUpFlags = ["--ssh"];
-    };
-
-    openssh = {
-      enable = true;
-      settings = {
-        PermitRootLogin = "no";
-        PasswordAuthentication = true;
-      };
-    };
-
-    dbus.enable = true;
-  };
-
   environment = {
     shellAliases = {
       resw = "sudo nixos-rebuild switch --flake ~/dotfiles#${config.hostName}";
@@ -43,6 +26,7 @@
   };
 
   security.polkit.enable = true;
+  services.dbus.enable = true;
 
   documentation.nixos.enable = false;
 

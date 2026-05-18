@@ -7,6 +7,7 @@
 }: {
   imports = [
     (self.paths.modules "common")
+    (self.paths.profiles "common/tailscale.nix")
   ];
 
   # Nix
