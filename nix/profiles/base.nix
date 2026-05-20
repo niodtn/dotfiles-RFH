@@ -81,10 +81,12 @@
           enable = true;
           silent = true;
           nix-direnv.enable = true;
+          enableZshIntegration = config.programs.zsh.enable;
         };
 
         atuin = {
           enable = true;
+          enableZshIntegration = config.programs.zsh.enable;
           settings = {
             style = "auto";
             invert = true;
@@ -93,6 +95,7 @@
 
         starship = {
           enable = true;
+          enableZshIntegration = config.programs.zsh.enable;
           settings = {
             add_newline = false;
             character.format = "❯ ";
