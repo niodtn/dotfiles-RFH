@@ -59,6 +59,7 @@
     useUserPackages = true;
     backupFileExtension = "backup";
     users.${config.userName} = {
+      home.shellAliases = config.environment.shellAliases;
       programs = {
         git = {
           enable = true;

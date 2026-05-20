@@ -19,6 +19,7 @@ in {
 
       # Applications - CLI
       (self.paths.profiles "common/zsh.nix")
+      (self.paths.profiles "common/zellij.nix")
 
       # Applications - GUI
       (self.paths.profiles "common/vscode")
