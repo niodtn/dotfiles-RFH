@@ -7,6 +7,9 @@
     {
       home-manager.users.${config.userName}.programs.zellij = {
         enable = true;
+        settings = {
+          show_startup_tips = false;
+        };
       };
     }
 
