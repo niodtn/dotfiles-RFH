@@ -15,7 +15,6 @@ in {
     #./hyprland
     #./niri
     #./cosmic.nix
-    # ./kde.nix
     ./labwc.nix
   ];
 
@@ -24,7 +23,6 @@ in {
       extraPortals = [
         pkgs.xdg-desktop-portal-hyprland
         pkgs.xdg-desktop-portal-gnome
-        pkgs.kdePackages.xdg-desktop-portal-kde
       ];
     };
   };
