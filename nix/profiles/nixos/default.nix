@@ -11,15 +11,6 @@
   ];
 
   # Nix
-  environment = {
-    shellAliases = {
-      resw = "sudo nixos-rebuild switch --flake ~/dotfiles#${config.hostName}";
-      rebo = "sudo nixos-rebuild boot --flake ~/dotfiles#${config.hostName}";
-      rebu = "nixos-rebuild build --flake ~/dotfiles#${config.hostName}";
-    };
-    systemPackages = [pkgs.xdg-utils];
-  };
-
   users.users.${config.userName} = {
     isNormalUser = true;
     extraGroups = ["wheel"];
@@ -27,6 +18,8 @@
 
   security.polkit.enable = true;
   services.dbus.enable = true;
+
+  environment.systemPackages = [pkgs.xdg-utils];
 
   documentation.nixos.enable = false;
 

@@ -27,7 +27,6 @@ in {
 
       # Applications - CLI
       (self.paths.profiles "nixos/tty/autologin.nix")
-      (self.paths.profiles "common/zsh.nix")
 
       # Host Specific
       ({config, ...}: {

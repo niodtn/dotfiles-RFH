@@ -17,10 +17,6 @@ in {
       ./system.nix
       ./macbook.nix
 
-      # Applications - CLI
-      (self.paths.profiles "common/zsh.nix")
-      (self.paths.profiles "common/zellij.nix")
-
       # Applications - GUI
       (self.paths.profiles "common/vscode")
       (self.paths.profiles "common/ghostty.nix")
@@ -40,11 +36,16 @@ in {
         system.stateVersion = 6; # $ darwin-rebuild changelog
         inherit hostName;
 
-        environment.systemPackages = [
-          pkgs.rectangle
-          pkgs.betterdisplay # License key is in Bitwarden
-          self.packages.${system}.finetune
-        ];
+        environment = {
+          shellAliases = {
+            tssh = "tailscale ssh";
+          };
+          systemPackages = [
+            pkgs.rectangle
+            pkgs.betterdisplay # License key is in Bitwarden
+            self.packages.${system}.finetune
+          ];
+        };
 
         homebrew = {
           brews = [

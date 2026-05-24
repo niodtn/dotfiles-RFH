@@ -7,6 +7,7 @@
 }: {
   imports = [
     (self.paths.modules "common")
+    (self.paths.profiles "common/shell")
     (self.paths.profiles "common/tailscale.nix")
   ];
 
@@ -20,8 +21,8 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "ca-derivations"
-        "fetch-closure"
+        # "ca-derivations"
+        # "fetch-closure"
       ];
       # gc
       auto-optimise-store = true;
@@ -38,19 +39,8 @@
 
   environment = {
     systemPackages = [
-      pkgs.github-cli
       pkgs.uv # Python Version Manager
     ];
-
-    shellAliases = {
-      ll = "ls -al";
-      ".." = "cd ../";
-      "..." = "cd ../../";
-
-      cloc = "nix run nixpkgs#cloc --";
-    };
-
-    enableAllTerminfo = true;
   };
 
   # Home Manager
@@ -58,56 +48,5 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    users.${config.userName} = {
-      home.shellAliases = config.environment.shellAliases;
-      programs = {
-        git = {
-          enable = true;
-          settings.user.name = "niodtn";
-          settings.user.email = "ipete93@gmail.com";
-        };
-
-        jujutsu = {
-          enable = true;
-          settings = {
-            user.email = "ipegte93@gmail.com";
-            user.name = "niodtn";
-
-            ui.default-commnad = "log";
-            revset-aliases."immutable_heads()" = "trunk() | tags()";
-          };
-        };
-
-        direnv = {
-          enable = true;
-          silent = true;
-          nix-direnv.enable = true;
-          enableZshIntegration = config.programs.zsh.enable;
-        };
-
-        atuin = {
-          enable = true;
-          enableZshIntegration = config.programs.zsh.enable;
-          settings = {
-            style = "auto";
-            invert = true;
-          };
-        };
-
-        starship = {
-          enable = true;
-          enableZshIntegration = config.programs.zsh.enable;
-          settings = {
-            add_newline = false;
-            character.format = "❯ ";
-
-            line_break.disabled = true;
-            git_status.disabled = true;
-            package.disabled = true;
-            python.disabled = true;
-          };
-        };
-      };
-    };
   };
 }

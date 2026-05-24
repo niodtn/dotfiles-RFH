@@ -26,8 +26,6 @@ in {
       # Applications - CLI
       # (self.paths.profiles "nixos/tty/autologin.nix")
       (self.paths.profiles "nixos/tty/kmscon.nix")
-      (self.paths.profiles "common/zsh.nix")
-      (self.paths.profiles "common/zellij.nix")
 
       # # Applications - GUI
       (self.paths.profiles "nixos/gui/gnome.nix")
