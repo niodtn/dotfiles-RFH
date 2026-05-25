@@ -28,11 +28,11 @@ in {
       (self.paths.profiles "nixos/tty/kmscon.nix")
 
       # # Applications - GUI
-      (self.paths.profiles "nixos/gui/gnome.nix")
+      # (self.paths.profiles "nixos/gui/gnome.nix")
 
-      (self.paths.profiles "common/vscode")
-      (self.paths.profiles "common/ghostty.nix")
-      (self.paths.profiles "common/firefox")
+      # (self.paths.profiles "common/vscode")
+      # (self.paths.profiles "common/ghostty.nix")
+      # (self.paths.profiles "common/firefox")
       # (self.paths.profiles "common/vesktop.nix")
 
       # Host Specific
