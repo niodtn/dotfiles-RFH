@@ -18,11 +18,14 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    # # Asahi
+    # Linux
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    # # Linux - Asahi
     # apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
     # apple-silicon-support.inputs.nixpkgs.follows = "nixpkgs";
 
-    # # WSL
+    # # Linux - WSL
     # nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     # nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 

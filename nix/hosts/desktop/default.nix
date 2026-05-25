@@ -14,6 +14,7 @@ in {
     modules = [
       # Core
       (self.paths.profiles "nixos")
+      ./cachy-kernel.nix
 
       # System
       (self.paths.profiles "nixos/boot.nix")
