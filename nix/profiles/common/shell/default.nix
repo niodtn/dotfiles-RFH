@@ -10,7 +10,6 @@
 
     ./aliases.nix
     ./vcs.nix
-    ./zellij.nix
   ];
 
   config = lib.mkMerge [
