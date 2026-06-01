@@ -16,9 +16,10 @@ in {
       (self.paths.profiles "nixos")
 
       # System
-      ./hardware
       (self.paths.profiles "nixos/boot.nix")
       # (self.paths.profiles "nixos/plymouth.nix")
+      ./hardware
+      ./windows.nix
 
       (self.paths.profiles "nixos/networking.nix")
       (self.paths.profiles "nixos/sound.nix")
@@ -41,9 +42,6 @@ in {
         platform = system;
         system.stateVersion = stateVersion;
         inherit hostName;
-
-        # For Windows dual-boot
-        time.hardwareClockInLocalTime = true;
 
         # Home Manager
         home-manager.users.${config.userName}.home.stateVersion = stateVersion;
