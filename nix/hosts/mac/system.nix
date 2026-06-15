@@ -3,8 +3,6 @@
   config,
   ...
 }: {
-  system.primaryUser = config.userName;
-
   system.defaults = {
     dock = {
       autohide = true;

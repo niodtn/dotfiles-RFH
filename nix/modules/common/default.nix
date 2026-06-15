@@ -29,6 +29,7 @@
     (self.isDarwin options {
       networking.computerName = config.hostName;
       networking.localHostName = config.hostName;
+      system.primaryUser = config.userName;
       users.users.${config.userName}.home = "/Users/${config.userName}";
     })
   ];
