@@ -4,7 +4,7 @@
   ...
 }: let
   userName = "niodtn";
-  userEmail = "ipete93@gmail.com";
+  userEmail = "ipegte93@gmail.com";
 in {
   # Nix
   environment = {
